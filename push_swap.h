@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:31:27 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/02 16:14:57 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/02 17:51:37 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,16 @@ typedef struct s_moves
 
 void	ft_check_input(int argc, char **argv);
 
-void ft_sa(t_stack *stack);
-void ft_sb(t_stack *stack);
-void ft_ss(t_stack *stack);
-void ft_pa(t_stack *stack);
-void ft_pb(t_stack *stack);
+void	ft_sa(t_stack *stack);
+void	ft_sb(t_stack *stack);
+void	ft_ss(t_stack *stack);
+void	ft_pa(t_stack *stack);
+void	ft_pb(t_stack *stack);
+void	ft_ra(t_stack *stack);
+void	ft_rb(t_stack *stack);
+void	ft_rr(t_stack *stack);
+void	ft_rra(t_stack *stack);
+void	ft_rrb(t_stack *stack);
+void	ft_rrr(t_stack *stack);
 
 #endif

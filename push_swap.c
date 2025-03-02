@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:25:36 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/02 16:24:26 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/02 17:52:28 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ void	ft_numbers(int argc, char **argv, t_stack *stack)
 	count = 0;
 	while (split_numbers[count])
 		count++;
-	stack->len_a = count; // b ve a nın uzuluğunu burda aldım çünkü diyelim b den a ya pushlayacaksın a ve b den kaç tane sayı olduğunu hep bilmen lazım yoksa işlem yapamazsın
+	stack->len_a = count;
 	stack->len_b = 0;
 	stack->stack_a = (int *)malloc(count * sizeof(int));
-	stack->stack_b = (int *)malloc(count * sizeof(int)); // burda b ye de yer açtım
+	stack->stack_b = (int *)malloc(count * sizeof(int));
 	if (!stack->stack_a)
 	{
 		ft_free(split_numbers);
@@ -129,7 +129,7 @@ int main()
 	stack.len_a = 4;
 	stack.len_b = 3;
 
-	ft_pb(&stack);
+	ft_rrr(&stack);
 
 	write_stacks(&stack);
 	return (0);

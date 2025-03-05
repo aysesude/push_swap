@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:25:36 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/02 17:52:28 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/05 06:20:06 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,15 +121,15 @@ int main()
 {
 	t_stack stack;
 
-	int a[] = {4, 7, 9, 12};
+	int a[] = {40, 10, 550};
 	int b[] = {3, 6, 8};
 
 	stack.stack_a = a;
 	stack.stack_b = b;
-	stack.len_a = 4;
+	stack.len_a = 3;
 	stack.len_b = 3;
 
-	ft_rrr(&stack);
+	first_moves(&stack);
 
 	write_stacks(&stack);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:31:27 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/02 17:51:37 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/05 07:25:10 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,10 @@ typedef struct s_stack
 	int		*stack_b;
 	int		len_a;
 	int		len_b;
+	int		cost;
+	int		largest_number_index_b;
+	char	*moves;
 }			t_stack;
-
-typedef struct s_moves
-{
-	int	sa;
-	int	sb;
-	int	ss;
-	int	pa;
-	int	pb;
-	int	ra;
-	int	rb;
-	int	rr;
-	int	rra;
-	int	rrb;
-	int	rrr;
-	int	cost;
-}		t_moves;
 
 void	ft_check_input(int argc, char **argv);
 
@@ -54,5 +41,10 @@ void	ft_rr(t_stack *stack);
 void	ft_rra(t_stack *stack);
 void	ft_rrb(t_stack *stack);
 void	ft_rrr(t_stack *stack);
+
+void	ft_first_moves(t_stack *stack);
+void	ft_moves_for_three_number(t_stack *stack);
+void	ft_moves_for_more_than_three_number(t_stack *stack);
+int		ft_calculate_cost(t_stack *stack, int index);
 
 #endif

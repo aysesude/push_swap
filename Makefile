@@ -5,6 +5,7 @@ C_FLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c \
 		check.c \
 		functions.c \
+		algorithm.c \
 
 SRCS_C = checker.c \
 

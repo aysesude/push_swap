@@ -16,7 +16,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@make -C libft/
 	@make -C ft_printf/
-	@$(CC) $(C_FLAGS) $(OBJ) ./ft_printf/libftprintf.a ./libft/libft.a -o $(NAME)
+	@$(CC) $(C_FLAGS) $(OBJ) ./ft_printf/libftprintf.a ./libft/libft.a -fsanitize=address -o $(NAME)
 
 %.o: %.c
 	@$(CC) $(C_FLAGS) -c $< -o $@

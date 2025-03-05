@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
+/*   By: aycami <aycami@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:25:36 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/05 06:20:06 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/05 20:20:02 by aycami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,16 +121,21 @@ int main()
 {
 	t_stack stack;
 
-	int a[] = {40, 10, 550};
-	int b[] = {3, 6, 8};
+	int a[20] = {5, 2, 7, 1, 6, 3, 9, 4, 8};
+	int b[20] = {};
 
+	
 	stack.stack_a = a;
 	stack.stack_b = b;
-	stack.len_a = 3;
-	stack.len_b = 3;
-
-	first_moves(&stack);
-
+	stack.len_a = 8;
+	stack.len_b = 0;
+	stack.ss_flag = 0;
+	stack.rr_flag = 0;
+	stack.rrr_flag = 0;
+	
 	write_stacks(&stack);
+
+	ft_first_moves(&stack);
+
 	return (0);
 }

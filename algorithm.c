@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:56:50 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/08 13:07:21 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/09 00:04:57 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_first_moves(t_stack *stack)
 		ft_pb(stack);
 		ft_pb(stack);
 		ft_moves_for_more_than_three_number(stack);
+		ft_push_to_a(stack);
 	}
 }
 
@@ -68,17 +69,6 @@ void	ft_moves_for_more_than_three_number(t_stack *stack)
 	}
 }
 
-void ft_yazma(t_moves *moves)
-{
-	printf("cost = %d \n", moves->cost);
-	printf("ra = %d \n", moves->ra);
-	printf("rb = %d \n", moves->rb);
-	printf("rr = %d \n", moves->rr);
-	printf("rra = %d \n", moves->rra);
-	printf("rrb = %d \n", moves->rrb);
-	printf("rrr = %d \n", moves->rrr);
-}
-
 t_moves	ft_calculate_cost(t_stack *stack, int index)
 {
 	t_moves moves;
@@ -96,14 +86,14 @@ t_moves	ft_calculate_cost(t_stack *stack, int index)
 		moves.ra = index;
 	else
 		moves.rra = (stack->len_a - index);
-	if((stack->stack_a[index] > ft_largest_number_in_b(stack)) || (stack->stack_a[index] < ft_smallest_number_in_b(stack))) //en büyük veya en küçük olma durumu
+	if((stack->stack_a[index] > ft_largest_number_in_b(stack)) || (stack->stack_a[index] < ft_smallest_number_in_b(stack)))
 	{
 		if(stack->largest_number_index_b <= ((stack->len_b)/2))
 			moves.rb = stack->largest_number_index_b;
 		else
 			moves.rrb = (stack->len_b - stack->largest_number_index_b);
 	}
-	else //diğer durum (kendisinden küçük en büyük sayıyı buluyorum.)
+	else
 	{
 		if(other_number_index_in_b(stack, stack->stack_a[index]) <= ((stack->len_b)/2))
 			moves.rb = other_number_index_in_b(stack, stack->stack_a[index]);
@@ -111,9 +101,6 @@ t_moves	ft_calculate_cost(t_stack *stack, int index)
 			moves.rrb = (stack->len_b - other_number_index_in_b(stack, stack->stack_a[index]));
 	}
 	ft_calculate_moves_cost(&moves);
-	printf("%d. INDEX CALCULATE EDİLDİ\n", index);
-	printf("bdeki en büyük sayının indexi: %d", stack->largest_number_index_b);
-	ft_yazma(&moves);
 	return moves;
 }
 
@@ -213,14 +200,14 @@ void ft_repeat_function(void (*func)(t_stack *), int count, t_stack *stack)
 	}
 }
 
-int	other_number_index_in_b(t_stack *stack, int num) //kendisinden küçük en büyük sayıyı buluyor.
+int	other_number_index_in_b(t_stack *stack, int num)
 {
 	int i;
 	int max_index;
 	int flag;
 
 
-	i = 1;
+	i = 0;
 	flag = 1;
 	while (i < stack->len_b)
 	{
@@ -234,4 +221,54 @@ int	other_number_index_in_b(t_stack *stack, int num) //kendisinden küçük en b
 		i++;
 	}
 	return max_index;
+}
+
+void	ft_push_to_a(t_stack *stack)
+{
+	int		target_index;
+	t_moves	moves;
+
+	while (stack->len_b > 0)
+	{
+		target_index = other_number_index_in_a(stack, stack->stack_b[0]);
+		moves.ra = 0;
+		moves.rra = 0;
+
+		if (target_index <= (stack->len_a / 2))
+			moves.ra = target_index;
+		else
+			moves.rra = stack->len_a - target_index;
+
+		ft_repeat_function(ft_ra, moves.ra, stack);
+		ft_repeat_function(ft_rra, moves.rra, stack);
+		ft_pa(stack);
+	}
+	while(stack->stack_a[(stack->len_a-1)] < stack->stack_a[0])
+	{
+		ft_rra(stack);
+	}
+}
+
+int	other_number_index_in_a(t_stack *stack, int num)
+{
+	int i;
+	int min_index;
+	int flag;
+
+	i = 0;
+	flag = 1;
+	while (i < stack->len_a)
+	{
+		if ((stack->stack_a[i] > num) && flag == 1)
+		{
+			min_index = i;
+			flag = 0;
+		}
+		else if ((stack->stack_a[i] > num) && (stack->stack_a[i] < stack->stack_a[min_index]))
+			min_index = i;
+		i++;
+	}
+	if (flag == 1)
+		return (0);
+	return (min_index);
 }

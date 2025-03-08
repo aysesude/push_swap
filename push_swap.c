@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:25:36 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/08 17:38:11 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/09 00:06:08 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,9 @@ int	main(int argc, char **argv)
 {
 	t_stack stack;
 
+	stack.ss_flag = 0;
+	stack.rr_flag = 0;
+	stack.rrr_flag = 0;
 	if (argc > 1)
 	{
 		ft_check_input(argc, argv);
@@ -117,26 +120,3 @@ int	main(int argc, char **argv)
 		ft_first_moves(&stack);
 	}
 }
-
-//int main()
-//{
-//	t_stack stack;
-
-//	int a[15] = {5, 2, 7, 1, 6, 3, 9, 4, 8, 12, 14, 23, 45, 56, 0};
-//	int b[15] = {};
-
-
-//	stack.stack_a = a;
-//	stack.stack_b = b;
-//	stack.len_a = 15;
-//	stack.len_b = 0;
-//	stack.ss_flag = 0;
-//	stack.rr_flag = 0;
-//	stack.rrr_flag = 0;
-
-//	write_stacks(&stack);
-
-//	ft_first_moves(&stack);
-
-//	return (0);
-//}

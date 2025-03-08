@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:31:27 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/08 12:40:53 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/08 23:26:03 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,7 @@ void	ft_update_largest_number_in_b(t_stack *stack);
 void	ft_push_to_b(t_stack *stack, t_moves *moves);
 void	ft_repeat_function(void (*func)(t_stack *), int count, t_stack *stack);
 int		other_number_index_in_b(t_stack *stack, int num);
+void	ft_push_to_a(t_stack *stack);
+int		other_number_index_in_a(t_stack *stack, int num);
 
 #endif

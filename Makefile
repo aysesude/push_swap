@@ -16,14 +16,14 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@make -C libft/
 	@make -C ft_printf/
-	@$(CC) $(C_FLAGS) $(OBJ) ./ft_printf/libftprintf.a ./libft/libft.a -fsanitize=address -o $(NAME)
+	@$(CC) $(C_FLAGS) $(OBJ) ./ft_printf/libftprintf.a libft/libft.a -fsanitize=address -o $(NAME)
 
 %.o: %.c
 	@$(CC) $(C_FLAGS) -c $< -o $@
 
 fclean: clean
 	@make fclean -C ft_printf/
-	@make clean -C libft/
+	@make fclean -C libft/
 	@rm -rf $(NAME)
 
 clean:

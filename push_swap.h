@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aycami <aycami@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:31:27 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/05 19:57:10 by aycami           ###   ########.fr       */
+/*   Updated: 2025/03/08 11:57:36 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ t_moves	ft_calculate_cost(t_stack *stack, int index);
 void	ft_calculate_moves_cost(t_moves *moves);
 int		ft_largest_number_in_b(t_stack *stack);
 int		ft_smallest_number_in_b(t_stack *stack);
+void	ft_update_largest_number_in_b(t_stack *stack);
 void	ft_push_to_b(t_stack *stack, t_moves *moves);
-void	ft_repeat_function(void (*func)(), int count, t_stack *stack);
+void	ft_repeat_function(void (*func)(t_stack *), int count, t_stack *stack);
+int		other_number_index_in_b(t_stack *stack, int num);
 
 #endif

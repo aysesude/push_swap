@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
+/*   By: aycami <aycami@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 19:03:22 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/02 06:56:19 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/05 17:33:50 by aycami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,8 @@ void	ft_check_input(int argc,char **argv)
 		ft_check_full_space(argv, i, j);
 		while(argv[i][j])
 		{
-			printf("deneme1\n");
 			if(!((argv[i][j] <= '9' && argv[i][j] >= '0') || argv[i][j] == 32))
 			{
-				printf("deneme2\n");
 				if((argv[i][j] == '+' || argv[i][j] == '-') && (j != 0))
 				{
 					if(!(argv[i][j-1] == 32))

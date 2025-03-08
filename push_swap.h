@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:31:27 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/05 07:25:10 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/08 23:26:03 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,26 @@ typedef struct s_stack
 	int		*stack_b;
 	int		len_a;
 	int		len_b;
-	int		cost;
+	int		ss_flag;
+	int		rr_flag;
+	int		rrr_flag;
 	int		largest_number_index_b;
-	char	*moves;
+	int		other_number_index_b;
 }			t_stack;
 
+typedef struct s_moves
+{
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+	int		cost;
+}			t_moves;
+
 void	ft_check_input(int argc, char **argv);
+void	write_stacks(t_stack *stack);
 
 void	ft_sa(t_stack *stack);
 void	ft_sb(t_stack *stack);
@@ -45,6 +59,15 @@ void	ft_rrr(t_stack *stack);
 void	ft_first_moves(t_stack *stack);
 void	ft_moves_for_three_number(t_stack *stack);
 void	ft_moves_for_more_than_three_number(t_stack *stack);
-int		ft_calculate_cost(t_stack *stack, int index);
+t_moves	ft_calculate_cost(t_stack *stack, int index);
+void	ft_calculate_moves_cost(t_moves *moves);
+int		ft_largest_number_in_b(t_stack *stack);
+int		ft_smallest_number_in_b(t_stack *stack);
+void	ft_update_largest_number_in_b(t_stack *stack);
+void	ft_push_to_b(t_stack *stack, t_moves *moves);
+void	ft_repeat_function(void (*func)(t_stack *), int count, t_stack *stack);
+int		other_number_index_in_b(t_stack *stack, int num);
+void	ft_push_to_a(t_stack *stack);
+int		other_number_index_in_a(t_stack *stack, int num);
 
 #endif

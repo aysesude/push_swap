@@ -46,10 +46,8 @@ void	ft_check_input(int argc,char **argv)
 		ft_check_full_space(argv, i, j);
 		while(argv[i][j])
 		{
-			printf("deneme1\n");
 			if(!((argv[i][j] <= '9' && argv[i][j] >= '0') || argv[i][j] == 32))
 			{
-				printf("deneme2\n");
 				if((argv[i][j] == '+' || argv[i][j] == '-') && (j != 0))
 				{
 					if(!(argv[i][j-1] == 32))

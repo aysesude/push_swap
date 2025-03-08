@@ -215,13 +215,21 @@ void ft_repeat_function(void (*func)(t_stack *), int count, t_stack *stack)
 
 int	other_number_index_in_b(t_stack *stack, int num) //kendisinden küçük en büyük sayıyı buluyor.
 {
-	int i = 1;
+	int i;
 	int max_index;
+	int flag;
 
-	max_index = 0;
+
+	i = 1;
+	flag = 1;
 	while (i < stack->len_b)
 	{
-		if ((stack->stack_b[i] < num) && (stack->stack_b[i] > stack->stack_b[max_index]))
+		if ((stack->stack_b[i] < num) && flag == 1)
+		{
+			max_index = i;
+			flag = 0;
+		}
+		else if ((stack->stack_b[i] < num) && (stack->stack_b[i] > stack->stack_b[max_index]))
 			max_index = i;
 		i++;
 	}

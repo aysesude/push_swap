@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:56:50 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/08 12:12:08 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/08 13:07:21 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	ft_moves_for_more_than_three_number(t_stack *stack)
 		tmp = 0;
 		while(i < stack->len_a)
 		{
-			printf("calculate_cost i =%d \t tmp = %d\n",ft_calculate_cost(stack, i).cost, ft_calculate_cost(stack, tmp).cost);
 			if(ft_calculate_cost(stack, i).cost < ft_calculate_cost(stack, tmp).cost)
 				tmp = i;
 			i++;
@@ -71,7 +70,6 @@ void	ft_moves_for_more_than_three_number(t_stack *stack)
 
 void ft_yazma(t_moves *moves)
 {
-	printf("CALCULATE EDİLDİ\n");
 	printf("cost = %d \n", moves->cost);
 	printf("ra = %d \n", moves->ra);
 	printf("rb = %d \n", moves->rb);
@@ -94,25 +92,27 @@ t_moves	ft_calculate_cost(t_stack *stack, int index)
 	moves.rrb = 0;
 	moves.rrr = 0;
 
-	if(index <= (stack->len_a/2))
+	if(index <= ((stack->len_a)/2))
 		moves.ra = index;
 	else
 		moves.rra = (stack->len_a - index);
 	if((stack->stack_a[index] > ft_largest_number_in_b(stack)) || (stack->stack_a[index] < ft_smallest_number_in_b(stack))) //en büyük veya en küçük olma durumu
 	{
-		if(stack->largest_number_index_b <= (stack->len_b/2))
+		if(stack->largest_number_index_b <= ((stack->len_b)/2))
 			moves.rb = stack->largest_number_index_b;
 		else
 			moves.rrb = (stack->len_b - stack->largest_number_index_b);
 	}
 	else //diğer durum (kendisinden küçük en büyük sayıyı buluyorum.)
 	{
-		if(index <= (stack->len_b/2))
+		if(other_number_index_in_b(stack, stack->stack_a[index]) <= ((stack->len_b)/2))
 			moves.rb = other_number_index_in_b(stack, stack->stack_a[index]);
 		else
 			moves.rrb = (stack->len_b - other_number_index_in_b(stack, stack->stack_a[index]));
 	}
 	ft_calculate_moves_cost(&moves);
+	printf("%d. INDEX CALCULATE EDİLDİ\n", index);
+	printf("bdeki en büyük sayının indexi: %d", stack->largest_number_index_b);
 	ft_yazma(&moves);
 	return moves;
 }

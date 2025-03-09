@@ -89,7 +89,7 @@ void	ft_is_stack_sorted(t_stack *stack)
 	int	i;
 
 	i = 1;
-	while(stack->stack_a[i] > stack->stack_a[i - 1])
+	while(stack->stack_a[i] > stack->stack_a[i - 1] && i < stack->len_a)
 		i++;
 	if(i == stack->len_a)
 		exit(0);

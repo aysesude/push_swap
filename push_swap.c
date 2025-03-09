@@ -121,6 +121,8 @@ int	main(int argc, char **argv)
 		ft_check_same_number(&stack);
 		ft_is_stack_sorted(&stack);
 		ft_first_moves(&stack);
+		free(stack.stack_a);
+		free(stack.stack_b);
 		//write_stacks(&stack);
 	}
 }

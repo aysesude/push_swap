@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 18:21:57 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/09 18:53:18 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/09 20:15:56 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_max_min_int_check(char **split_numbers, int count, long long result)
 {
 	if(result > 2147483647 || result < -2147483648 || count > 10)
 	{
-		printf("deneme %lld\n", result);
+		//printf("deneme %lld\n", result);
 		ft_free(split_numbers);
 		ft_exit();
 	}

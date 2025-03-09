@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aycami <aycami@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 17:51:51 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/05 19:53:28 by aycami           ###   ########.fr       */
+/*   Updated: 2025/03/09 20:17:23 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void ft_sa(t_stack *stack)
 	if(stack->ss_flag == 0)
 	{
 		write(1,"sa\n",3);
-		write_stacks(stack);
 	}
 }
 
@@ -36,7 +35,6 @@ void ft_sb(t_stack *stack)
 	if(stack->ss_flag == 0)
 	{
 		write(1,"sb\n",3);
-		write_stacks(stack);
 	}
 }
 
@@ -46,7 +44,6 @@ void ft_ss(t_stack *stack)
 	ft_sa(stack);
 	ft_sb(stack);
 	write(1, "ss\n", 3);
-	write_stacks(stack);
 	stack->ss_flag=0;
 }
 
@@ -72,7 +69,6 @@ void	ft_pa(t_stack *stack)
 		stack->len_b--;
 	}
 	write(1, "pa\n", 3);
-	write_stacks(stack);
 }
 
 void	ft_pb(t_stack *stack)
@@ -97,7 +93,6 @@ void	ft_pb(t_stack *stack)
 		stack->len_a--;
 	}
 	write(1, "pb\n", 3);
-	write_stacks(stack);
 }
 
 void	ft_ra(t_stack *stack)
@@ -119,7 +114,6 @@ void	ft_ra(t_stack *stack)
 	if(stack->rr_flag == 0)
 	{
 		write(1,"ra\n", 3);
-		write_stacks(stack);
 	}
 }
 
@@ -142,7 +136,6 @@ void	ft_rb(t_stack *stack)
 	if(stack->rr_flag == 0)
 	{
 		write(1,"rb\n", 3);
-		write_stacks(stack);	
 	}
 }
 
@@ -152,7 +145,7 @@ void	ft_rr(t_stack *stack)
 	ft_rb(stack);
 	ft_ra(stack);
 	write(1, "rr\n", 3);
-	write_stacks(stack);
+
 	stack->rr_flag = 0;
 }
 
@@ -175,7 +168,6 @@ void	ft_rra(t_stack *stack)
 	if(stack->rrr_flag == 0)
 	{
 		write(1,"rra\n", 4);
-		write_stacks(stack);	
 	}
 }
 
@@ -198,7 +190,6 @@ void	ft_rrb(t_stack *stack)
 	if(stack->rrr_flag == 0)
 	{
 		write(1,"rrb\n", 4);
-		write_stacks(stack);
 	}
 }
 
@@ -208,6 +199,5 @@ void	ft_rrr(t_stack *stack)
 	ft_rra(stack);
 	ft_rrb(stack);
 	write(1, "rrr\n", 4);
-	write_stacks(stack);
 	stack->rrr_flag = 0;
 }

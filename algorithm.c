@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:56:50 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/09 18:13:39 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/09 21:53:54 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_moves_for_more_than_three_number(t_stack *stack)
 			i++;
 		}
 		moves = ft_calculate_cost(stack, tmp);
-		printf("En ucuz hamlelinin indexi: %d \n", tmp);
+		//printf("En ucuz hamlelinin indexi: %d \n", tmp);
 		ft_push_to_b(stack, &moves);
 	}
 	ft_moves_for_three_number(stack);
@@ -250,8 +250,23 @@ void	ft_push_to_a(t_stack *stack)
 		ft_repeat_function(ft_rra, moves.rra, stack);
 		ft_pa(stack);
 	}
-	while(stack->stack_a[(stack->len_a-1)] < stack->stack_a[0])
-		ft_rra(stack);
+	ft_is_stack_sorted(stack);
+	ft_last_sort(stack);
+}
+
+void	ft_last_sort(t_stack *stack)
+{
+	int	ra;
+	int	rra;
+
+	ra = 0;
+	rra = 0;
+	if(ft_smallest_number_index_in_a(stack) <= ((stack->len_a)/2))
+		ra = ft_smallest_number_index_in_a(stack);
+	else
+		rra = (stack->len_a - ft_smallest_number_index_in_a(stack));
+	ft_repeat_function(ft_ra, ra, stack);
+	ft_repeat_function(ft_rra, rra, stack);
 }
 
 int	other_number_index_in_a(t_stack *stack, int num)
@@ -280,4 +295,20 @@ int	other_number_index_in_a(t_stack *stack, int num)
 		return (0);
 	}
 	return (min_index);
+}
+
+int	ft_smallest_number_index_in_a(t_stack *stack)
+{
+	int	i;
+	int	min_index;
+
+	i = 1;
+	min_index = 0;
+	while (i < stack->len_a)
+	{
+		if (stack->stack_a[i] < stack->stack_a[min_index])
+			min_index = i;
+		i++;
+	}
+	return(min_index);
 }

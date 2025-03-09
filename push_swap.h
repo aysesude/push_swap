@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:31:27 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/09 20:11:45 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/09 22:04:52 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ typedef struct s_moves
 }			t_moves;
 
 void	ft_check_input(int argc, char **argv);
-void	ft_check_same_number(char **split_numbers, int *stack);
+void	ft_check_same_number(t_stack *stack);
+void	ft_is_stack_sorted(t_stack *stack);
 void	write_stacks(t_stack *stack);
 
 void	ft_sa(t_stack *stack);
@@ -73,6 +74,8 @@ int		other_number_index_in_a(t_stack *stack, int num);
 int		ft_new_atoi(char **split_numbers, const char *str);
 char	**ft_free(char **result);
 void	ft_exit();
+int	ft_smallest_number_index_in_a(t_stack *stack);
+void	ft_last_sort(t_stack *stack);
 
 
 #endif

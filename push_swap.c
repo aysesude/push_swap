@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:25:36 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/09 18:56:46 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/09 22:13:06 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	ft_numbers(int argc, char **argv, t_stack *stack)
 		(stack->stack_a)[i] = ft_new_atoi(split_numbers, split_numbers[i]);
 		i++;
 	}
-	ft_check_same_number(split_numbers, stack->stack_a);
 	ft_free(split_numbers);
 }
 
@@ -113,9 +112,15 @@ int	main(int argc, char **argv)
 	stack.rrr_flag = 0;
 	if (argc > 1)
 	{
+		if(!argv[1][0])
+		{
+			ft_exit();
+		}
 		ft_check_input(argc, argv);
 		ft_numbers(argc, argv, &stack);
-		write_stacks(&stack);
+		ft_check_same_number(&stack);
+		ft_is_stack_sorted(&stack);
 		ft_first_moves(&stack);
+		//write_stacks(&stack);
 	}
 }

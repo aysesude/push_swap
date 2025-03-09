@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 19:03:22 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/09 20:12:43 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/09 22:12:50 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_exit()
 {
-	ft_printf("Error\n");
-	exit(0);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	ft_check_full_space(char **argv, int i, int j)
@@ -40,7 +40,6 @@ void	ft_check_input(int argc,char **argv)
 	int	j;
 	i = 1;
 	j = 0;
-
 	while(i < argc)
 	{
 		ft_check_full_space(argv, i, j);
@@ -50,10 +49,10 @@ void	ft_check_input(int argc,char **argv)
 			{
 				if((argv[i][j] == '+' || argv[i][j] == '-') && (j != 0))
 				{
-					if(!(argv[i][j-1] == 32))
+					if(!((argv[i][j-1] == 32) && (argv[i][j+1] <= '9' && argv[i][j+1] >= '0')))
 						ft_exit();
 				}
-				else if(!(argv[i][j] == '+' || argv[i][j] == '-'))
+				else if(!(argv[i][j] == '+' || argv[i][j] == '-') || !(argv[i][j+1] <= '9' && argv[i][j+1] >= '0'))
 					ft_exit();
 			}
 			j++;
@@ -63,25 +62,35 @@ void	ft_check_input(int argc,char **argv)
 	}
 }
 
-void	ft_check_same_number(char **split_numbers, int *stack)
+void	ft_check_same_number(t_stack *stack)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while(stack[i])
+	while(i < (stack->len_a - 1))
 	{
 		j = i + 1;
-		while(stack[j])
+		while(j < stack->len_a)
 		{
-			if(stack[i] == stack[j])
+			if(stack->stack_a[i] == stack->stack_a[j])
 			{
-				ft_free(split_numbers);
 				ft_exit();
 			}
 			j++;
 		}
 		i++;
 	}
+}
+
+void	ft_is_stack_sorted(t_stack *stack)
+{
+	int	i;
+
+	i = 1;
+	while(stack->stack_a[i] > stack->stack_a[i - 1])
+		i++;
+	if(i == stack->len_a)
+		exit(0);
 }

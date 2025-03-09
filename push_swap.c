@@ -6,13 +6,13 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 18:25:36 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/09 00:06:08 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/09 18:56:46 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static char	**ft_free(char **result)
+char	**ft_free(char **result)
 {
 	int	i;
 
@@ -72,11 +72,10 @@ void	ft_numbers(int argc, char **argv, t_stack *stack)
 	i = 0;
 	while (i < count)
 	{
-		(stack->stack_a)[i] = ft_atoi(split_numbers[i]);
-		printf("%d\n", (stack->stack_a)[i]);
+		(stack->stack_a)[i] = ft_new_atoi(split_numbers, split_numbers[i]);
 		i++;
 	}
-
+	ft_check_same_number(split_numbers, stack->stack_a);
 	ft_free(split_numbers);
 }
 

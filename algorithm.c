@@ -6,7 +6,7 @@
 /*   By: aysesudecami <aysesudecami@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:56:50 by aysesudecam       #+#    #+#             */
-/*   Updated: 2025/03/09 00:04:57 by aysesudecam      ###   ########.fr       */
+/*   Updated: 2025/03/09 18:13:39 by aysesudecam      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 
 void	ft_first_moves(t_stack *stack)
 {
-	if(stack->len_a == 2)
+	if((stack->len_a == 2) && stack->stack_a[0] > stack->stack_a[1])
 		ft_ra(stack);
 	else if(stack->len_a == 3)
 		ft_moves_for_three_number(stack);
+	else if(stack->len_a == 4)
+	{
+		ft_pb(stack);
+		ft_moves_for_three_number(stack);
+		ft_push_to_a(stack);
+	}
 	else if(stack->len_a >= 4)
 	{
 		ft_pb(stack);
@@ -67,6 +73,7 @@ void	ft_moves_for_more_than_three_number(t_stack *stack)
 		printf("En ucuz hamlelinin indexi: %d \n", tmp);
 		ft_push_to_b(stack, &moves);
 	}
+	ft_moves_for_three_number(stack);
 }
 
 t_moves	ft_calculate_cost(t_stack *stack, int index)
@@ -244,9 +251,7 @@ void	ft_push_to_a(t_stack *stack)
 		ft_pa(stack);
 	}
 	while(stack->stack_a[(stack->len_a-1)] < stack->stack_a[0])
-	{
 		ft_rra(stack);
-	}
 }
 
 int	other_number_index_in_a(t_stack *stack, int num)
@@ -269,6 +274,10 @@ int	other_number_index_in_a(t_stack *stack, int num)
 		i++;
 	}
 	if (flag == 1)
+	{
+		while(stack->stack_a[(stack->len_a-1)] < stack->stack_a[0])
+			ft_rra(stack);
 		return (0);
+	}
 	return (min_index);
 }

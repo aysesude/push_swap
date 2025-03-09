@@ -6,6 +6,7 @@ SRCS = push_swap.c \
 		check.c \
 		functions.c \
 		algorithm.c \
+		ft_new_atoi.c
 
 SRCS_C = checker.c \
 

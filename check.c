@@ -94,7 +94,7 @@ void	ft_is_stck_sorted(t_stck *stck)
 	int	i;
 
 	i = 1;
-	while (stck->stck_a[i] > stck->stck_a[i - 1] && i < stck->len_a)
+	while (i < stck->len_a && stck->stck_a[i] > stck->stck_a[i - 1])
 		i++;
 	if (i == stck->len_a)
 	{

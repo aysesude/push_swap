@@ -21,7 +21,7 @@ void	ft_ra(t_stck *stck)
 	tmp = stck->stck_a[0];
 	if (stck->len_a > 1)
 	{
-		while (i < stck->len_a)
+		while ((i + 1) < stck->len_a)
 		{
 			stck->stck_a[i] = stck->stck_a[i + 1];
 			i++;
@@ -43,7 +43,7 @@ void	ft_rb(t_stck *stck)
 	tmp = stck->stck_b[0];
 	if (stck->len_b > 1)
 	{
-		while (i < stck->len_b)
+		while ((i + 1) < stck->len_b)
 		{
 			stck->stck_b[i] = stck->stck_b[i + 1];
 			i++;

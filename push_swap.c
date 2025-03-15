@@ -80,7 +80,7 @@ void	ft_numbers2(char **split_numbers, t_stck *stck)
 	i = 0;
 	while (i < count)
 	{
-		(stck->stck_a)[i] = ft_new_atoi(split_numbers, split_numbers[i]);
+		(stck->stck_a)[i] = ft_new_atoi(split_numbers, stck, split_numbers[i]);
 		i++;
 	}
 	ft_free(split_numbers);

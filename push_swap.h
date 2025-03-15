@@ -47,7 +47,7 @@ void	ft_check_input(int argc, char **argv);
 void	ft_check_input_control(char **argv, int i, int j);
 void	ft_check_same_number(t_stck *stck);
 void	ft_is_stck_sorted(t_stck *stck);
-int		ft_new_atoi(char **split_numbers, const char *str);
+int		ft_new_atoi(char **split_numbers, t_stck *stck, const char *str);
 char	**ft_free(char **result);
 void	ft_numbers2(char **split_numbers, t_stck *stck);
 void	ft_sa(t_stck *stck);
